@@ -337,12 +337,26 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "8fa73b4d-3555-4343-b3d4-2d34c52bed0c",
+                  "title": "T03 — Manipulação das leituras transmitidas ao agente de vínculo",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: F1 — Leitura.\nClassificação STRIDE preliminar: Tampering.\n\nCenário e pressupostos: Um componente capaz de interferir no caminho de aquisição altera leituras entre os sensores físicos e o agente de vínculo.\n\nImpacto: O agente decide com base em dados de contato ou uso adulterados.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Validar origem das leituras e proteger o caminho de aquisição.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "4e241666-69d9-4db9-ab96-c5fbf7c65d9c"
               ]
@@ -445,12 +459,39 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "cd273e20-26ff-41dd-96c3-c20e7cf17d1d",
+                  "title": "T16 — Reutilização de um token ou resposta anterior",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: F4 — Prova de autenticação.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: Um atacante reutiliza token, resposta ou prova de autenticação capturada em uma sessão anterior.\n\nImpacto: Uma autenticação antiga pode autorizar uma sessão atual sem nova comprovação.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Nonce, expiração, sessão única e verificação antirreplay.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "f9e90943-cf80-46ec-8775-92061a37983d",
+                  "title": "T17 — Alteração da identidade ou dispositivo informado na prova",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: F4 — Prova de autenticação.\nClassificação STRIDE preliminar: Tampering.\n\nCenário e pressupostos: Um atacante altera os identificadores de pessoa, dispositivo ou sessão informados na prova de autenticação.\n\nImpacto: Uma prova legítima pode ser atribuída a identidade, relógio ou sessão incorretos.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Vincular criptograficamente identidade, dispositivo e sessão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": []
             },
             "labels": [
@@ -497,12 +538,52 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "be750e55-a06f-4d80-b9b4-fc50935d615a",
+                  "title": "T08 — Reutilização de uma evidência de uso anteriormente válida",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: F3 — Evidência de uso.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: Um atacante captura uma evidência de uso válida e a retransmite em outra ocasião ou sessão. Este registro trata da proteção antirreplay da evidência originada no smartwatch; T23 trata de sua aceitação no verificador.\n\nImpacto: O estado de uso antigo pode simular continuidade física atual.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Nonce, identificador de sessão, sequência e expiração.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "4fc87394-5690-4491-a1ae-74285609038d",
+                  "title": "T09 — Adulteração do estado de contato enviado ao verificador",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: F3 — Evidência de uso.\nClassificação STRIDE preliminar: Tampering.\n\nCenário e pressupostos: Um adversário capaz de interferir no fluxo altera o estado de contato ou outros campos da evidência enviada ao verificador.\n\nImpacto: Uma retirada ou ausência de contato pode ser ocultada por mensagem adulterada.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Autenticação e integridade das mensagens, associadas à sessão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "6ebd32f8-1caa-491f-b604-94cfd13aba72",
+                  "title": "T23 — Apresentação de evidência antiga ou produzida por dispositivo não autorizado",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: F3 — Evidência de uso.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: O verificador recebe e aceita evidência antiga ou originada de dispositivo não autorizado sem conferir origem, sessão e frescor. Complementa T08, que trata da reutilização da mensagem no fluxo.\n\nImpacto: Uma mensagem tecnicamente bem formada pode sustentar uma autorização sem evidência atual do dispositivo autorizado.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Verificar origem, sessão, frescor e integridade.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": []
             },
             "labels": [
@@ -543,12 +624,26 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "291e4c65-8935-4c68-ae3f-0c264e432184",
+                  "title": "T26 — Falsificação ou adulteração de uma decisão de autenticação",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: F6 — Decisão.\nClassificação STRIDE preliminar: Spoofing / Tampering.\n\nCenário e pressupostos: Um adversário fabrica uma decisão de autenticação ou altera seu resultado, identidade, sessão ou validade antes do consumo pela próxima etapa.\n\nImpacto: A próxima etapa pode tratar uma sessão não autorizada como válida.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Decisão autenticada, vinculada à sessão e com validade curta.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": []
             },
             "labels": [
@@ -676,9 +771,36 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a29d6bb2-278a-4d8b-8cef-704a14b7e95c",
+                  "title": "T01 — Substituição do portador: B coloca um relógio anteriormente autenticado por A",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: P1 — Sensores Físicos.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: O titular A autentica o relógio, retira-o e o entrega a B, mantendo-se a sessão ou o vínculo ativo. Pressupõe acesso físico ao wearable; contato corporal, por si só, não identifica o portador.\n\nImpacto: Medições de B podem ser atribuídas à identidade de A.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade alta preliminar, conforme o exemplo da matriz.",
+                  "mitigation": "Proposta (a implementar e validar): Detecção de retirada, suspensão do vínculo e nova verificação de identidade.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "6853e319-73b0-48de-bd97-65a79271e5d7",
+                  "title": "T02 — Falsificação de contato corporal ou de sinais de uso",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: P1 — Sensores Físicos.\nClassificação STRIDE preliminar: Spoofing / Tampering.\n\nCenário e pressupostos: Um adversário com acesso físico ou capacidade de interferir nos sensores simula contato corporal ou sinais compatíveis com uso legítimo.\n\nImpacto: O sistema pode manter o vínculo com base em uma evidência física falsificada.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Corroboração de sensores e detecção de inconsistências.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -793,9 +915,36 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a385e08c-7cd4-4824-8826-e08c26608dc9",
+                  "title": "T06 — Extração de chaves e credenciais locais",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: D1 — Credenciais do dispositivo.\nClassificação STRIDE preliminar: Information disclosure.\n\nCenário e pressupostos: Um atacante com acesso suficiente ao dispositivo ou a seu software extrai as chaves e credenciais locais.\n\nImpacto: As credenciais expostas podem permitir impersonação do dispositivo e comprometer o vínculo.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Android Keystore/armazenamento protegido por hardware quando disponível.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "68ade6ff-2e25-4aba-ab7c-a7a46d7fe061",
+                  "title": "T07 — Uso não autorizado das credenciais por software comprometido",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: D1 — Credenciais do dispositivo.\nClassificação STRIDE preliminar: Elevation of privilege.\n\nCenário e pressupostos: Software comprometido invoca credenciais locais sem autorização, inclusive quando a chave não pode ser extraída. Pressupõe acesso indevido à operação criptográfica.\n\nImpacto: O atacante usa a identidade criptográfica do relógio com privilégios que não deveria possuir.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Controle de acesso à chave, isolamento e restrição de permissões.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -910,12 +1059,52 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0be6aed7-ce54-4fd0-bb51-745df366291e",
+                  "title": "T04 — Supressão ou atraso intencional do evento de retirada",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: P2 — Agente de Vínculo.\nClassificação STRIDE preliminar: Tampering / Denial of service.\n\nCenário e pressupostos: Software comprometido com capacidade de interferir na aquisição suprime ou atrasa intencionalmente o evento de retirada. Erros espontâneos do sensor devem ser avaliados separadamente como confiabilidade.\n\nImpacto: A sessão permanece válida após a perda de continuidade física; a verificação pode ficar indisponível.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Monitoramento periódico, timeout e suspensão por ausência de evidências recentes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "ec6bc83b-029f-4103-aea8-dd607fdd319d",
+                  "title": "T05 — Geração de evidência de uso sem verificação física recente",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: P2 — Agente de Vínculo.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: Um agente comprometido ou uma lógica vulnerável gera evidência de uso sem consultar o estado físico atual ou aceita uma leitura vencida.\n\nImpacto: Uma declaração de uso sem suporte físico recente pode ser aceita como atual.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Verificar estado atual dos sensores e validade temporal da evidência.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "d008c606-0736-4ff4-8b6c-80025cba7e07",
+                  "title": "T10 — Exaustão de recursos que impede a verificação contínua",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Fronteira de análise: TB1 — Smartwatch.\nElemento: P2 — Agente de Vínculo.\nClassificação STRIDE preliminar: Denial of service.\n\nCenário e pressupostos: Um atacante provoca consumo excessivo de CPU, memória, bateria ou filas do agente de vínculo.\n\nImpacto: A verificação contínua fica indisponível e o sistema pode perder a capacidade de confirmar o uso atual.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Limites de processamento, tratamento de falhas e suspensão segura.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1030,9 +1219,62 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "09b0fda0-2f87-4a74-890e-7ae03ec95ff2",
+                  "title": "T11 — Pessoa B utiliza o smartphone desbloqueado ou a sessão autenticada de A",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: P3 — Aplicativo Autenticador.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: B utiliza o smartphone desbloqueado ou a sessão de conta pertencente a A para responder à autenticação.\n\nImpacto: A identidade digital de A pode ser usada para validar um portador não autorizado.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Reautenticação recente e verificação independente do portador.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "921f23ea-470b-437c-b3eb-10d1ec8e8fd4",
+                  "title": "T12 — Aplicativo malicioso falsifica o resultado de autenticação",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: P3 — Aplicativo Autenticador.\nClassificação STRIDE preliminar: Spoofing / Elevation of privilege.\n\nCenário e pressupostos: Um aplicativo malicioso ou comprometido fabrica o resultado de autenticação, explorando a confiança atribuída ao cliente.\n\nImpacto: O verificador pode aceitar uma identidade não comprovada ou conceder autorização indevida.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Verificação da origem e das provas pelo serviço verificador.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "715bb37d-c875-4c84-b207-a6569c117876",
+                  "title": "T13 — Autenticação legítima de A enquanto B utiliza o smartwatch",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: P3 — Aplicativo Autenticador.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: A autentica legitimamente sua conta no smartphone enquanto B usa fisicamente o relógio. Mesmo canais seguros e contato verdadeiro não demonstram que A é o portador.\n\nImpacto: Sinais fisiológicos de B podem ser vinculados à identidade autenticada de A.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Vincular a autenticação à prova atual do portador do relógio.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "dcce9f6d-9fda-414e-be56-ac8e9b7ab0ec",
+                  "title": "T18 — Exposição de credenciais ou tokens no smartphone",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: P3 — Aplicativo Autenticador.\nClassificação STRIDE preliminar: Information disclosure.\n\nCenário e pressupostos: Um atacante ou aplicativo com acesso indevido ao smartphone obtém credenciais ou tokens em armazenamento, memória, registros ou interfaces expostas.\n\nImpacto: O material exposto pode permitir sequestro de sessão e impersonação da conta.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Armazenamento seguro, privilégios mínimos e proteção de sessão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1060,12 +1302,39 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "a95796e3-8f03-4656-8ac3-6145e46edca3",
+                  "title": "T14 — Interceptação ou adulteração da comunicação relógio–celular",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: F2 — Resposta.\nClassificação STRIDE preliminar: Information disclosure / Tampering.\n\nCenário e pressupostos: Um adversário posicionado no canal relógio–celular intercepta dados ou modifica mensagens de resposta.\n\nImpacto: Dados de autenticação podem ser expostos e a integridade do estabelecimento do vínculo pode ser comprometida.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Canal autenticado, criptografado e protegido contra MITM.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "bcb292d2-dc25-459e-a373-7d695fc9149b",
+                  "title": "T15 — Dispositivo falso responde a um desafio destinado ao relógio legítimo",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB2 — Smartphone.\nElemento: F2 — Resposta.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: Um dispositivo falso ou não autorizado apresenta resposta a um desafio destinado ao dispositivo legítimo.\n\nImpacto: O sistema pode estabelecer confiança com o dispositivo errado.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Autenticação mútua e desafio vinculado à identidade do dispositivo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "4e241666-69d9-4db9-ab96-c5fbf7c65d9c",
                 "7de8f0c8-49cd-4b28-a3eb-00133f96d5c8"
@@ -1202,9 +1471,88 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "e334d2b9-2a36-49d5-9845-55f5bb585257",
+                  "title": "T19 — Verificador confia na identidade declarada pelo cliente sem validar sua origem",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Spoofing.\n\nCenário e pressupostos: O cliente declara uma identidade e o verificador a aceita sem validar a origem e as evidências correspondentes.\n\nImpacto: Uma identidade arbitrária pode ser tratada como autenticada.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Validar credenciais e evidências no servidor.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "547f13e5-fa9a-49d4-b4ca-76e119c2251b",
+                  "title": "T20 — Associação incorreta entre identidade A e dispositivo de B",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Elevation of privilege / Tampering.\n\nCenário e pressupostos: São apresentadas a identidade autenticada de A e a identidade de um relógio vinculado a B; o serviço verifica cada prova isoladamente, sem conferir a associação autorizada entre pessoa, dispositivo e sessão.\n\nImpacto: Um usuário ou dispositivo recebe autorização para uma associação que não lhe pertence.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Conferir vínculo autorizado entre identidade, dispositivo e sessão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "5899baff-0c0f-4f48-ab34-3ff619bd4940",
+                  "title": "T24 — Retirada ocorre entre a validação e a emissão da autorização",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Elevation of privilege.\n\nCenário e pressupostos: A evidência é validada, o relógio é retirado e a autorização é emitida antes que a revogação ou o novo estado seja considerado. Atrasos físicos de detecção compõem o risco residual.\n\nImpacto: A decisão pode conceder autorização depois que o vínculo físico já deixou de ser válido.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Revalidar estado, usar versão de sessão e revogação atômica.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "2c4cc5bd-0f59-47f1-b2bd-645647f336b8",
+                  "title": "T25 — Serviço autoriza por padrão quando há falha de verificação",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Elevation of privilege.\n\nCenário e pressupostos: Uma falha, timeout, exceção ou prova ausente leva o serviço a autorizar por padrão, seguindo uma política fail-open.\n\nImpacto: A autorização é concedida sem que os requisitos de identidade e vínculo sejam comprovados.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Política fail-closed: ausência de prova impede autorização.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "2239b9bb-082a-485d-84af-4b625b499abe",
+                  "title": "T27 — Ausência ou adulteração de registros impede atribuir uma decisão",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Repudiation.\n\nCenário e pressupostos: A ausência de registros protegidos ou sua adulteração impede reconstruir a origem, as evidências e o responsável por uma decisão.\n\nImpacto: A decisão não pode ser atribuída ou auditada de modo confiável.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Registros de auditoria protegidos e correlacionados à sessão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "d61582ea-fc11-4a0e-acaf-84b12d6a6ac5",
+                  "title": "T28 — Solicitações excessivas impedem autenticações legítimas",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: P4 — Validação de ID e vínculo.\nClassificação STRIDE preliminar: Denial of service.\n\nCenário e pressupostos: Um atacante envia volume excessivo de solicitações ou explora operações custosas do verificador.\n\nImpacto: Autenticações legítimas sofrem atraso ou indisponibilidade.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Rate limiting, controle de recursos e política de recuperação.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1319,12 +1667,39 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "dc68db30-5ed4-43c4-97c2-a286a2957b46",
+                  "title": "T21 — Alteração não autorizada das associações cadastradas",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: D2 — Registro.\nClassificação STRIDE preliminar: Tampering.\n\nCenário e pressupostos: Um adversário com acesso indevido de escrita modifica as associações pessoa–dispositivo ou seus metadados no registro.\n\nImpacto: O verificador consulta um vínculo adulterado e pode autorizar a pessoa ou o dispositivo errado.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Controle de acesso, integridade e auditoria.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "b38b18e5-b64a-4da8-b28b-12228ad6d635",
+                  "title": "T22 — Vazamento de identificadores, dados de associação ou históricos",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Fronteira de análise: TB3 — Serviço Verificador.\nElemento: D2 — Registro.\nClassificação STRIDE preliminar: Information disclosure.\n\nCenário e pressupostos: Um adversário consulta, copia ou obtém acesso indevido a identificadores, associações ou históricos mantidos no registro.\n\nImpacto: Exposição de informações sobre identidades e vínculos, com possibilidade de correlação e uso em outros ataques.\n\nAmeaça candidata para investigação; controle proposto ainda não comprova mitigação. Severidade a definir após avaliação de risco.",
+                  "mitigation": "Proposta (a implementar e validar): Minimização de dados, criptografia e autorização.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1389,6 +1764,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 28
   }
 }

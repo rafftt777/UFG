@@ -21,12 +21,12 @@
         "cells": [
           {
             "position": {
-              "x": 70,
-              "y": 60
+              "x": 69.99999999999966,
+              "y": 60.00000000000068
             },
             "size": {
-              "width": 430,
-              "height": 230
+              "width": 470,
+              "height": 310
             },
             "attrs": {
               "label": {
@@ -35,26 +35,60 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "4e241666-69d9-4db9-ab96-c5fbf7c65d9c",
             "zIndex": -1,
+            "id": "4e241666-69d9-4db9-ab96-c5fbf7c65d9c",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Limite físico",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
+              "crossingFlows": [
+                "f27e9798-ffeb-41de-a7e5-434ec91688bd",
+                "5c7db3e7-e195-420a-8ddc-d407bf5540a7"
+              ],
               "containedElements": [
                 "f846bd57-1ce9-47c7-8a11-5bdd1c05ad05",
                 "fcae5ca5-7dc7-46c7-a3ec-2e674a270e57",
-                "92720045-03eb-42ad-b754-39562abead79"
+                "6053869a-76fe-4cc9-a229-9da15342de5a",
+                "8426a6f0-fef1-4175-8c2e-88ca9e73d948"
               ]
             }
           },
           {
             "position": {
-              "x": 120,
+              "x": 640,
               "y": 90
+            },
+            "size": {
+              "width": 300,
+              "height": 180
+            },
+            "attrs": {
+              "label": {
+                "text": "Software autênticador"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "df10958c-9439-49c3-b5e4-d38894619a55",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Software autênticador",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "7d01af39-fc1f-4e23-bbdc-cc573f194a1a"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 110,
+              "y": 100.00000000000003
             },
             "size": {
               "width": 110,
@@ -72,6 +106,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 0,
             "ports": {
               "groups": {
                 "top": {
@@ -155,7 +190,6 @@
               ]
             },
             "id": "f846bd57-1ce9-47c7-8a11-5bdd1c05ad05",
-            "zIndex": 0,
             "data": {
               "type": "tm.Actor",
               "name": "Usuário",
@@ -170,8 +204,8 @@
           },
           {
             "position": {
-              "x": 120,
-              "y": 178.00000000000006
+              "x": 110,
+              "y": 270
             },
             "size": {
               "width": 110,
@@ -189,6 +223,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -272,127 +307,9 @@
               ]
             },
             "id": "fcae5ca5-7dc7-46c7-a3ec-2e674a270e57",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Smartwatch",
-              "description": "",
-              "isTrustBoundary": false,
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "providesAuthentication": false,
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 337,
-              "y": 90
-            },
-            "size": {
-              "width": 110,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Smartphone"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "actor",
-            "ports": {
-              "groups": {
-                "top": {
-                  "position": "top",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "right": {
-                  "position": "right",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "bottom": {
-                  "position": "bottom",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "left": {
-                  "position": "left",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                }
-              },
-              "items": [
-                {
-                  "group": "top",
-                  "id": "f4815062-9a8e-4e60-843f-70f8b12b4bde"
-                },
-                {
-                  "group": "right",
-                  "id": "ca71a23d-a4c0-49e5-874e-c1b85e41c31c"
-                },
-                {
-                  "group": "bottom",
-                  "id": "1ac8c2da-5a30-41ac-8110-2139d7157d04"
-                },
-                {
-                  "group": "left",
-                  "id": "c645fe17-4579-4264-a6d9-20d829b691c4"
-                }
-              ]
-            },
-            "id": "92720045-03eb-42ad-b754-39562abead79",
-            "zIndex": 2,
-            "data": {
-              "type": "tm.Actor",
-              "name": "Smartphone",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
@@ -468,7 +385,340 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Prova de id",
+              "name": "sinais de uso",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "4e241666-69d9-4db9-ab96-c5fbf7c65d9c"
+              ]
+            },
+            "labels": [
+              "sinais de uso"
+            ],
+            "id": "f27e9798-ffeb-41de-a7e5-434ec91688bd",
+            "source": {
+              "x": 230,
+              "y": 126
+            },
+            "target": {
+              "cell": "6053869a-76fe-4cc9-a229-9da15342de5a",
+              "port": "46878466-faa1-4b6f-a42a-c54badf25b52"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "serviço de sensores",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "4e241666-69d9-4db9-ab96-c5fbf7c65d9c"
+              ]
+            },
+            "labels": [
+              "serviço de sensores"
+            ],
+            "id": "5c7db3e7-e195-420a-8ddc-d407bf5540a7",
+            "source": {
+              "x": 230,
+              "y": 300
+            },
+            "target": {
+              "cell": "6053869a-76fe-4cc9-a229-9da15342de5a",
+              "port": "8f261036-d7f7-4154-868b-8dc8463bbe47"
+            }
+          },
+          {
+            "position": {
+              "x": 279.99999999999966,
+              "y": 175.00000000000045
+            },
+            "size": {
+              "width": 130,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Sensor"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "46878466-faa1-4b6f-a42a-c54badf25b52"
+                },
+                {
+                  "group": "right",
+                  "id": "e265fec0-9974-4e62-a5f4-94b7d5ff01db"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8f261036-d7f7-4154-868b-8dc8463bbe47"
+                },
+                {
+                  "group": "left",
+                  "id": "fcd3b0db-4c5a-4b05-b061-b58f67f02d99"
+                }
+              ]
+            },
+            "id": "6053869a-76fe-4cc9-a229-9da15342de5a",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Process",
+              "name": "Sensor",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 375,
+              "y": 100
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "smartphone"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "3a699279-59f1-46c7-a3f5-6fb5dc1b537a"
+                },
+                {
+                  "group": "right",
+                  "id": "321a3b81-fa56-405b-9eff-770ee88b9c08"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bd3b5cd7-4ab0-4389-8653-d0ceaca469f3"
+                },
+                {
+                  "group": "left",
+                  "id": "8fe1d79f-fb84-46ac-aa15-8a20487f0fa3"
+                }
+              ]
+            },
+            "id": "8426a6f0-fef1-4175-8c2e-88ca9e73d948",
+            "zIndex": 12,
+            "data": {
+              "type": "tm.Actor",
+              "name": "smartphone",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 13,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "verificação",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -482,18 +732,69 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Prova de id"
+              "verificação"
             ],
-            "id": "8ac5a1f6-a5c9-4682-bee9-a711ee0f9e86",
+            "id": "d14f3e5f-4483-420c-b49b-14278ae369a7",
             "source": {
-              "cell": "f846bd57-1ce9-47c7-8a11-5bdd1c05ad05",
-              "port": "ca71a23d-a4c0-49e5-874e-c1b85e41c31c"
+              "x": 380,
+              "y": 210
             },
             "target": {
-              "cell": "92720045-03eb-42ad-b754-39562abead79",
-              "port": "c645fe17-4579-4264-a6d9-20d829b691c4"
+              "x": 640,
+              "y": 210
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 14,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
             },
-            "vertices": []
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "898db269-8571-45c1-b0bc-599affa92000",
+            "source": {
+              "x": 480,
+              "y": 130
+            },
+            "target": {
+              "x": 640,
+              "y": 130
+            }
+          },
+          {
+            "position": {
+              "x": 689,
+              "y": 150
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Etapa de autênticação\ndo sensor com as\ncredênciais de usuário"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "7d01af39-fc1f-4e23-bbdc-cc573f194a1a",
+            "zIndex": 15,
+            "data": {
+              "type": "tm.Text",
+              "name": "Etapa de autênticação\ndo sensor com as\ncredênciais de usuário",
+              "hasOpenThreats": false
+            }
           }
         ],
         "description": "Conexão física do usuário e dados (a)"

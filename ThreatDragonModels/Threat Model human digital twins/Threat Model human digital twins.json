@@ -1385,15 +1385,6 @@
           }
         ],
         "description": "Conexão física do usuário e dados (a)"
-      },
-      {
-        "id": 1,
-        "title": "Novo diagrama STRIDE",
-        "diagramType": "STRIDE",
-        "placeholder": "Descrição de novo diagrama STRIDE",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.6.2",
-        "cells": []
       }
     ],
     "diagramTop": 2,

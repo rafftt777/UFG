@@ -13,7 +13,7 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "Novo diagrama STRIDE",
+        "title": "Conexão física do usuário e dados (a)",
         "diagramType": "STRIDE",
         "placeholder": "Descrição de novo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -495,7 +495,8 @@
             },
             "vertices": []
           }
-        ]
+        ],
+        "description": "Conexão física do usuário e dados (a)"
       }
     ],
     "diagramTop": 1,

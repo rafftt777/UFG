@@ -316,7 +316,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -384,61 +385,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Chave \nID",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "4e241666-69d9-4db9-ab96-c5fbf7c65d9c"
-              ]
-            },
-            "labels": [
-              "Chave \nID"
-            ],
-            "id": "105511cc-03ce-4aca-8dc6-79cb215cfcbd",
-            "source": {
-              "x": 340,
-              "y": 150
-            },
-            "target": {
-              "cell": "d89e23e3-b950-4c4e-b672-ebbe60885059",
-              "port": "eb8952db-111d-4431-bb74-6cf48af0a3e5"
-            },
-            "vertices": [
-              {
-                "x": 320,
-                "y": 200
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -517,7 +465,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -603,7 +552,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -660,6 +610,64 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Chave \nID",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "4e241666-69d9-4db9-ab96-c5fbf7c65d9c"
+              ]
+            },
+            "labels": [
+              "Chave \nID"
+            ],
+            "id": "105511cc-03ce-4aca-8dc6-79cb215cfcbd",
+            "source": {
+              "x": 340,
+              "y": 150
+            },
+            "target": {
+              "cell": "d89e23e3-b950-4c4e-b672-ebbe60885059",
+              "port": "eb8952db-111d-4431-bb74-6cf48af0a3e5"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 200
+              },
+              {
+                "x": 280,
+                "y": 230
+              }
+            ]
+          },
+          {
             "position": {
               "x": 44,
               "y": 90
@@ -673,8 +681,8 @@
                 "text": "P1 - Sensores\nFísicos"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -817,8 +825,8 @@
                 "text": "D1 - Credênciais \ndo dispositivo"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -961,8 +969,8 @@
                 "text": "P2 - Agente de \nVínculo"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1121,8 +1129,8 @@
                 "text": "P3 - Aplicativo\nAutenticador"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1281,7 +1289,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1354,7 +1363,7 @@
             },
             "vertices": [
               {
-                "x": 70,
+                "x": -20,
                 "y": 266
               }
             ]
@@ -1373,8 +1382,8 @@
                 "text": "P4 - Validação de ID\ne vínculo"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1557,8 +1566,8 @@
           },
           {
             "position": {
-              "x": 190,
-              "y": 570
+              "x": 198,
+              "y": 575
             },
             "size": {
               "width": 90,
@@ -1569,8 +1578,8 @@
                 "text": "D2 - Registro"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },

@@ -1,28 +1,3937 @@
 {
   "version": "2.6.2",
-  "release_version": "",
-  "released_at": "",
   "summary": {
-    "title": "Threat Model human digital twins",
+    "title": "Threat Model human digital twins v2",
     "owner": "rafftt777",
-    "description": "threat model base IC",
+    "description": "Modelo de ameaças da etapa pessoa-relógio da IC \"Arquitetura e protocolo para autenticação segura de dispositivos em gêmeos digitais\".\n\nEscopo: ciclo de vida da autenticação da pessoa, ou seja, a primeira coordenada do DFA (eventos a e r): cadastro e primeiro pareamento, colocação do relógio, uso contínuo, retirada ou logout, perda e roubo. A autenticação do gêmeo digital (eventos b e s) fica para a próxima etapa.\n\nCada ameaça indica seu efeito no DFA: a forjado, r suprimido, a negado ou r forjado, pré-condição de a, ou propriedades fora do autômato (confidencialidade e auditoria).\n\nSeveridade preliminar = probabilidade (1 a 3) x impacto (1 a 3), registrada no campo de pontuação: 9 crítica, 6 alta, 3 a 4 média, 1 a 2 baixa. São estimativas iniciais para revisão com o orientador, não medições.\n\nTodas as ameaças estão abertas: as mitigações são propostas a implementar e validar no MVP, e nenhuma está comprovada.\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte.",
     "id": 0
   },
   "detail": {
     "contributors": [],
     "diagrams": [
       {
-        "id": 3,
-        "title": "Novo diagrama STRIDE",
+        "id": 0,
+        "title": "D0 - Cadastro e primeiro pareamento",
         "diagramType": "STRIDE",
         "placeholder": "Descrição de novo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.6.2",
-        "cells": []
+        "cells": [
+          {
+            "position": {
+              "x": 240,
+              "y": 0
+            },
+            "size": {
+              "width": 600,
+              "height": 250
+            },
+            "attrs": {
+              "label": {
+                "text": "TB1 - Smartwatch (Wear OS)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "8a057fb6-ebf5-41a2-9825-d810d399b046",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB1 - Smartwatch (Wear OS)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "a7db1d9b-b0b8-4ad1-b68d-54b46abad625",
+                "41b3fb35-1103-430f-bd8a-8673768702fa"
+              ],
+              "containedElements": [
+                "d989017c-ff21-4b79-9b4d-51b27728b39f",
+                "9767361d-6ef1-4ab1-9eac-6b3ae8ca32c0"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -40,
+              "y": 330
+            },
+            "size": {
+              "width": 250,
+              "height": 190
+            },
+            "attrs": {
+              "label": {
+                "text": "TB2 - Smartphone (Android)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "b65c5f5c-5d8a-438a-b176-47055ba10d70",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 - Smartphone (Android)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "9789e025-b2df-43d9-82cf-414441e5503f",
+                "a7db1d9b-b0b8-4ad1-b68d-54b46abad625",
+                "7b434230-633d-4e8e-a840-045a3cb59a46"
+              ],
+              "containedElements": [
+                "f3f4757a-4687-4b57-9995-1bc3201c4b0f"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 240,
+              "y": 600
+            },
+            "size": {
+              "width": 600,
+              "height": 250
+            },
+            "attrs": {
+              "label": {
+                "text": "TB3 - Serviço verificador"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "ada5a2d8-cd68-4ebb-8ce7-385fef737160",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB3 - Serviço verificador",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "41b3fb35-1103-430f-bd8a-8673768702fa",
+                "7b434230-633d-4e8e-a840-045a3cb59a46"
+              ],
+              "containedElements": [
+                "3d8769a4-1e44-4c69-8276-703c88a34ab2",
+                "9c65e19e-eb11-4df4-853d-158baeb6659e"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 70
+            },
+            "size": {
+              "width": 130,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "E1 - Pessoa titular"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8975caa1-f536-42b6-a4aa-5ca6803a12d8"
+                },
+                {
+                  "group": "right",
+                  "id": "2184c653-2f2d-420d-b9e9-2996e25f0853"
+                },
+                {
+                  "group": "bottom",
+                  "id": "fb25dc15-7aa1-4f82-8ac5-6efd690c03bf"
+                },
+                {
+                  "group": "left",
+                  "id": "03f2fbfa-f27f-4407-b260-30e09e9d8720"
+                }
+              ]
+            },
+            "id": "453da829-23cc-409e-ae46-9727a2011327",
+            "data": {
+              "type": "tm.Actor",
+              "name": "E1 - Pessoa titular",
+              "description": "Pessoa cuja identidade será vinculada ao relógio. Fora de qualquer fronteira: é o elemento físico que o sistema precisa reconhecer.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "2dde3601-6fc4-4cfe-981c-2195d55438bc",
+                  "title": "T31 — Impostor se cadastra no lugar do titular",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: No primeiro uso, nada além da posse da conta prova que a pessoa que coloca o relógio é o titular. Quem controla a conta (ou a cria em nome de outro) vincula o próprio corpo à identidade de A.\n\nImpacto: Todas as garantias posteriores são sobre a pessoa errada: o gêmeo de A recebe dados de outra pessoa desde o início.",
+                  "mitigation": "Definir a prova de identidade do cadastro conforme o contexto (em saúde, cadastro presencial ou validado por profissional). Registrar explicitamente como premissa do modelo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 70
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P2 - Agente de\nvínculo"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "e2b24dd6-1a83-4e80-999f-2e954a00a0b6"
+                },
+                {
+                  "group": "right",
+                  "id": "eedbf48e-a076-4b76-b3f2-c078f8cd67b5"
+                },
+                {
+                  "group": "bottom",
+                  "id": "f87c49fd-6df3-4275-9606-d63692ac7675"
+                },
+                {
+                  "group": "left",
+                  "id": "0cd56d0b-b180-4bd0-9bca-2739d2b68cbf"
+                }
+              ]
+            },
+            "id": "d989017c-ff21-4b79-9b4d-51b27728b39f",
+            "data": {
+              "type": "tm.Process",
+              "name": "P2 - Agente de\nvínculo",
+              "description": "Aplicativo no relógio que gera a chave do dispositivo e participa do pareamento.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 620,
+              "y": 90
+            },
+            "size": {
+              "width": 190,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D1 - Chaves do dispositivo\n(Keystore)"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "f3ed3041-f473-4dce-886e-5e8c52b870c6"
+                },
+                {
+                  "group": "right",
+                  "id": "1776d7ce-8812-4b54-bf56-5bce0772defc"
+                },
+                {
+                  "group": "bottom",
+                  "id": "0c256857-e8bc-4b2d-84fa-3dc907e5ffb8"
+                },
+                {
+                  "group": "left",
+                  "id": "2fcf2cdb-de65-4652-a82e-1c889ddcae5b"
+                }
+              ]
+            },
+            "id": "9767361d-6ef1-4ab1-9eac-6b3ae8ca32c0",
+            "data": {
+              "type": "tm.Store",
+              "name": "D1 - Chaves do dispositivo\n(Keystore)",
+              "description": "Par de chaves do relógio, gerado e mantido no Android Keystore.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 30,
+              "y": 380
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P3 - Aplicativo\nautenticador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "e5a80b93-b570-4c35-8bde-41a5a5d99b50"
+                },
+                {
+                  "group": "right",
+                  "id": "118b27a4-e280-4a7f-a825-136e5957fb6e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "f9371fca-6592-4cd9-a7f7-7154d1b0a780"
+                },
+                {
+                  "group": "left",
+                  "id": "e1722b70-1dce-422b-b406-b9ba82563311"
+                }
+              ]
+            },
+            "id": "f3f4757a-4687-4b57-9995-1bc3201c4b0f",
+            "data": {
+              "type": "tm.Process",
+              "name": "P3 - Aplicativo\nautenticador",
+              "description": "Aplicativo no celular onde a pessoa prova quem é e inicia o vínculo.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 680
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6 - Serviço de\ncadastro"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "d063099b-8197-44ee-8b92-64cdb31e34fd"
+                },
+                {
+                  "group": "right",
+                  "id": "72c75339-3d1d-4d00-84a1-0af75b4065b3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "e6cc69d3-ef35-4f50-9e6c-2a038932d8b8"
+                },
+                {
+                  "group": "left",
+                  "id": "bf14a068-dab8-4ee5-b999-d6994fc117ce"
+                }
+              ]
+            },
+            "id": "3d8769a4-1e44-4c69-8276-703c88a34ab2",
+            "data": {
+              "type": "tm.Process",
+              "name": "P6 - Serviço de\ncadastro",
+              "description": "Recebe o pedido de vínculo, confere a atestação e grava o vínculo pessoa-relógio-conta.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "79824f16-1239-460b-b816-1cc7da516d96",
+                  "title": "T30 — Cadastro de relógio emulado ou de chave fora de hardware",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A3 software malicioso no relógio ou no celular; A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: O serviço de cadastro aceita uma chave pública sem prova de que foi gerada em hardware de um relógio real e íntegro. Um emulador ou script registra uma \"chave de relógio\" controlada por software.\n\nImpacto: Passa a existir um dispositivo registrado que pode produzir evidências de uso sem pulso algum.",
+                  "mitigation": "Exigir atestação de chave do Android Keystore e verificação de integridade do dispositivo no cadastro. Verificar na fase de análise de plataforma quais relógios Wear OS suportam atestação.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "f12feaf8-dbed-4a8e-8534-3e2a53765514",
+                  "title": "T32 — Vínculo residual após venda, doação ou restauração do relógio",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: O relógio muda de dono ou é restaurado, mas o vínculo antigo continua ativo em D2 ou a chave antiga continua válida.\n\nImpacto: O novo portador pode gerar eventos a em nome do antigo titular, ou o antigo titular mantém acesso.",
+                  "mitigation": "Fluxo de desvinculação que revoga a chave em D2; a restauração de fábrica destrói a chave do Keystore; vínculo com validade e renovação periódica.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "84edd43b-b451-468f-b217-c410365c0cf8",
+                  "title": "T33 — Segundo relógio vinculado à conta sem consentimento do titular",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica); A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Com acesso momentâneo à conta ou ao celular de A, o atacante vincula um relógio próprio como dispositivo adicional.\n\nImpacto: O atacante passa a produzir eventos a legítimos do ponto de vista criptográfico.",
+                  "mitigation": "Novo vínculo exige reautenticação forte e notificação ao titular; política de um relógio ativo por pessoa, com troca explícita.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 640,
+              "y": 700
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D2 - Registro de\nvínculos"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 6,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5e3ba29e-312f-4248-b274-5603b4c336f4"
+                },
+                {
+                  "group": "right",
+                  "id": "ebb1b5f9-ea4e-41fe-95ed-e4cf615009d8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "b595e258-8243-421a-98e3-c238e5ed1459"
+                },
+                {
+                  "group": "left",
+                  "id": "68a0cebb-0812-46be-90b8-b70c25320587"
+                }
+              ]
+            },
+            "id": "9c65e19e-eb11-4df4-853d-158baeb6659e",
+            "data": {
+              "type": "tm.Store",
+              "name": "D2 - Registro de\nvínculos",
+              "description": "Vínculos ativos: pseudônimo da pessoa, chave pública do relógio, estado e validade.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C1 - Prova de identidade\ninicial",
+              "description": "Como a pessoa prova quem é no primeiro uso (senha, biometria do celular, validação presencial).",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "b65c5f5c-5d8a-438a-b176-47055ba10d70"
+              ]
+            },
+            "labels": [
+              "C1 - Prova de identidade\ninicial"
+            ],
+            "id": "9789e025-b2df-43d9-82cf-414441e5503f",
+            "source": {
+              "cell": "453da829-23cc-409e-ae46-9727a2011327",
+              "port": "fb25dc15-7aa1-4f82-8ac5-6efd690c03bf"
+            },
+            "target": {
+              "cell": "f3f4757a-4687-4b57-9995-1bc3201c4b0f",
+              "port": "e5a80b93-b570-4c35-8bde-41a5a5d99b50"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C2 - Pareamento",
+              "description": "Primeiro pareamento entre celular e relógio e troca de chaves públicas.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "Bluetooth LE",
+              "threats": [
+                {
+                  "id": "eee18b34-e933-4a60-b86a-02963afaca34",
+                  "title": "T29 — Homem-no-meio no primeiro pareamento relógio-celular",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Durante o primeiro pareamento, um atacante próximo se interpõe entre o relógio e o celular (por exemplo, explorando um modo de pareamento sem confirmação) e passa a intermediar o canal.\n\nImpacto: O vínculo é criado com chaves que o atacante conhece ou com o dispositivo do atacante; todas as autenticações seguintes herdam o problema.",
+                  "mitigation": "Pareamento com confirmação pelo usuário (comparação numérica); além do enlace, o relógio e o aplicativo trocam chaves públicas confirmadas por um código exibido nas duas telas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "9989395a-6045-4cbc-b696-bf545b615a32",
+                  "title": "T34 — Rastreamento do titular por identificadores de rádio",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Identificadores estáveis anunciados pelo relógio durante o pareamento e a reconexão permitem a um observador passivo reconhecer e seguir o dispositivo.\n\nImpacto: Localização e rotina do titular podem ser inferidas sem quebrar nenhuma criptografia.",
+                  "mitigation": "Usar endereços privados resolvíveis do Bluetooth LE e não incluir identificadores do vínculo em anúncios.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": "P2 x I1 = 2"
+                }
+              ],
+              "trustBoundaryIds": [
+                "b65c5f5c-5d8a-438a-b176-47055ba10d70",
+                "8a057fb6-ebf5-41a2-9825-d810d399b046"
+              ]
+            },
+            "labels": [
+              "C2 - Pareamento"
+            ],
+            "id": "a7db1d9b-b0b8-4ad1-b68d-54b46abad625",
+            "source": {
+              "cell": "f3f4757a-4687-4b57-9995-1bc3201c4b0f",
+              "port": "118b27a4-e280-4a7f-a825-136e5957fb6e"
+            },
+            "target": {
+              "cell": "d989017c-ff21-4b79-9b4d-51b27728b39f",
+              "port": "0cd56d0b-b180-4bd0-9bca-2739d2b68cbf"
+            },
+            "vertices": [
+              {
+                "x": 240,
+                "y": 300
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C3 - Geração da chave",
+              "description": "Geração do par de chaves em hardware e obtenção do certificado de atestação.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "C3 - Geração da chave"
+            ],
+            "id": "013f50dd-49a6-4f46-b26f-912b5a013fbb",
+            "source": {
+              "cell": "d989017c-ff21-4b79-9b4d-51b27728b39f",
+              "port": "eedbf48e-a076-4b76-b3f2-c078f8cd67b5"
+            },
+            "target": {
+              "cell": "9767361d-6ef1-4ab1-9eac-6b3ae8ca32c0",
+              "port": "2fcf2cdb-de65-4652-a82e-1c889ddcae5b"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C4 - Chave pública\ne atestação",
+              "description": "Enviado diretamente ou retransmitido pelo celular; em ambos os casos assinado pelo relógio.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [],
+              "trustBoundaryIds": [
+                "8a057fb6-ebf5-41a2-9825-d810d399b046",
+                "ada5a2d8-cd68-4ebb-8ce7-385fef737160"
+              ]
+            },
+            "labels": [
+              "C4 - Chave pública\ne atestação"
+            ],
+            "id": "41b3fb35-1103-430f-bd8a-8673768702fa",
+            "source": {
+              "cell": "d989017c-ff21-4b79-9b4d-51b27728b39f",
+              "port": "f87c49fd-6df3-4275-9606-d63692ac7675"
+            },
+            "target": {
+              "cell": "3d8769a4-1e44-4c69-8276-703c88a34ab2",
+              "port": "d063099b-8197-44ee-8b92-64cdb31e34fd"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C5 - Vincular ou desvincular\n(conta autenticada)",
+              "description": "Pedido de criação, troca ou remoção de vínculo feito pela conta autenticada.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [],
+              "trustBoundaryIds": [
+                "b65c5f5c-5d8a-438a-b176-47055ba10d70",
+                "ada5a2d8-cd68-4ebb-8ce7-385fef737160"
+              ]
+            },
+            "labels": [
+              "C5 - Vincular ou desvincular\n(conta autenticada)"
+            ],
+            "id": "7b434230-633d-4e8e-a840-045a3cb59a46",
+            "source": {
+              "cell": "f3f4757a-4687-4b57-9995-1bc3201c4b0f",
+              "port": "f9371fca-6592-4cd9-a7f7-7154d1b0a780"
+            },
+            "target": {
+              "cell": "3d8769a4-1e44-4c69-8276-703c88a34ab2",
+              "port": "bf14a068-dab8-4ee5-b999-d6994fc117ce"
+            },
+            "vertices": [
+              {
+                "x": 100,
+                "y": 680
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C6 - Gravação do vínculo",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "C6 - Gravação do vínculo"
+            ],
+            "id": "79922f1d-0e86-4b32-8dfb-59ad23098e3b",
+            "source": {
+              "cell": "3d8769a4-1e44-4c69-8276-703c88a34ab2",
+              "port": "72c75339-3d1d-4d00-84a1-0af75b4065b3"
+            },
+            "target": {
+              "cell": "9c65e19e-eb11-4df4-853d-158baeb6659e",
+              "port": "68a0cebb-0812-46be-90b8-b70c25320587"
+            },
+            "vertices": []
+          }
+        ],
+        "description": "Como nasce o vínculo pessoa-relógio-conta. O DFA parte do princípio de que esse vínculo existe; tudo o que der errado aqui contamina todos os eventos a posteriores.\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
+      },
+      {
+        "id": 1,
+        "title": "D1 - Sessão: colocar (a), uso contínuo, retirar (r)",
+        "diagramType": "STRIDE",
+        "placeholder": "Descrição de novo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 240,
+              "y": 0
+            },
+            "size": {
+              "width": 740,
+              "height": 320
+            },
+            "attrs": {
+              "label": {
+                "text": "TB1 - Smartwatch (Wear OS)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "abd96904-e795-492c-8dbf-8dc3364011a1",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB1 - Smartwatch (Wear OS)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "3c6abe48-9362-4100-a592-a60e91eb256d",
+                "5e8528a6-0aa0-4ba7-b641-9ad4d2fbe286",
+                "a93b3bd3-58ff-4f48-af84-a8af239ac562",
+                "7dd251f1-4631-42a2-946c-9a462ec588d2"
+              ],
+              "containedElements": [
+                "4e1fe95c-4ec8-4569-9322-64dd56369b8a",
+                "46d72580-1130-45e7-9973-7fde83c68317",
+                "f7afaded-48d0-4253-b179-b6c51d863101",
+                "2f961966-832b-4def-ae52-5fb294596a80"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -40,
+              "y": 400
+            },
+            "size": {
+              "width": 250,
+              "height": 320
+            },
+            "attrs": {
+              "label": {
+                "text": "TB2 - Smartphone (Android)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "3ad8f581-76d3-4d57-862a-1375a8a7f044",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 - Smartphone (Android)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "bf63d6ea-37a8-483b-9010-fcad042ef123",
+                "5e8528a6-0aa0-4ba7-b641-9ad4d2fbe286",
+                "9adb58dc-9dac-416a-b1de-c4455ea526fe"
+              ],
+              "containedElements": [
+                "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+                "639bc6aa-1d16-44a5-8346-63e927c50c52"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 240,
+              "y": 800
+            },
+            "size": {
+              "width": 740,
+              "height": 300
+            },
+            "attrs": {
+              "label": {
+                "text": "TB3 - Serviço verificador"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "efcbad9b-ef3b-4875-9727-f7b2dd3d150f",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB3 - Serviço verificador",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "a93b3bd3-58ff-4f48-af84-a8af239ac562",
+                "7dd251f1-4631-42a2-946c-9a462ec588d2",
+                "9adb58dc-9dac-416a-b1de-c4455ea526fe",
+                "1a6de63a-f815-4095-a8d7-cb9c3c3d03cd"
+              ],
+              "containedElements": [
+                "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+                "1c39b7fe-6cc0-4c52-aa25-53d5f9de5fb9",
+                "4408f54c-ab72-4a7d-a695-6c288995d9fd"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 1200
+            },
+            "size": {
+              "width": 320,
+              "height": 140
+            },
+            "attrs": {
+              "label": {
+                "text": "TB4 - Gêmeo digital (próxima etapa)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "f4bd21b5-c2bd-46e2-a58f-416d10871ab6",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB4 - Gêmeo digital (próxima etapa)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "1a6de63a-f815-4095-a8d7-cb9c3c3d03cd"
+              ],
+              "containedElements": [
+                "78e3acd3-634f-4f76-8cea-c9fc69f6a4ca"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 0,
+              "y": 75
+            },
+            "size": {
+              "width": 130,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "E1 - Pessoa titular"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "de36c48b-5b11-44f6-abe2-0158476b3143"
+                },
+                {
+                  "group": "right",
+                  "id": "10294d32-93e6-4486-9f33-b1176d7769f6"
+                },
+                {
+                  "group": "bottom",
+                  "id": "5aadb176-b175-4037-afcd-599df5d17599"
+                },
+                {
+                  "group": "left",
+                  "id": "7d1c20fb-0175-47a8-9d22-fc40fb302508"
+                }
+              ]
+            },
+            "id": "c3864b59-0030-438a-99b0-183e13c13fa7",
+            "data": {
+              "type": "tm.Actor",
+              "name": "E1 - Pessoa titular",
+              "description": "Pessoa que coloca e retira o relógio. O sistema só observa o corpo dela pelos sensores (F0) e o que ela sabe ou é pelo celular (F5).",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "304b3d4b-dd38-4f01-8965-fe59acbe830d",
+                  "title": "T44 — Titular nega ter usado o relógio em uma sessão",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a capacidade de provar depois qual transição ocorreu e por quê.\n\nAdversário: A5 titular desonesto ou em conluio.\n\nCenário: Depois de uma sessão, o titular alega que não era ele quem usava o relógio, ou o contrário.\n\nImpacto: Sem evidência guardada, não há como sustentar nem refutar a alegação; em contexto clínico isso afeta a validade do registro.",
+                  "mitigation": "Guardar, por sessão, as provas assinadas que levaram a a e a r. Declarar o limite: a prova mostra relógio e conta, não a pessoa (ver T13).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": "P2 x I2 = 4"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 340,
+              "y": 50
+            },
+            "size": {
+              "width": 130,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P1 - Sensores e\ndetecção de pulso"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "78f444b8-96bf-4d61-bb39-b754062f10dc"
+                },
+                {
+                  "group": "right",
+                  "id": "c07e4901-3327-4513-ae1d-4a9ae43c4e63"
+                },
+                {
+                  "group": "bottom",
+                  "id": "07bb3092-4056-467e-b63f-ea38d512827c"
+                },
+                {
+                  "group": "left",
+                  "id": "90109188-79a8-4277-8720-a8af21bf9383"
+                }
+              ]
+            },
+            "id": "4e1fe95c-4ec8-4569-9322-64dd56369b8a",
+            "data": {
+              "type": "tm.Process",
+              "name": "P1 - Sensores e\ndetecção de pulso",
+              "description": "Sensores do relógio: detecção fora do pulso, frequência cardíaca, acelerômetro.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "6676a798-4bd9-4054-920d-ad9225844b4e",
+                  "title": "T01 — Substituição do portador: B coloca um relógio anteriormente autenticado por A",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica); A5 titular desonesto ou em conluio.\n\nCenário: O titular A autentica o relógio, retira-o e o entrega a B, mantendo-se a sessão ou o vínculo ativo. Pressupõe acesso físico ao wearable; contato corporal, por si só, não identifica o portador.\n\nImpacto: Medições de B podem ser atribuídas à identidade de A.",
+                  "mitigation": "Detecção de retirada, suspensão do vínculo e nova verificação de identidade. No Wear OS: sensor de detecção fora do pulso de baixa latência como gatilho de r; r invalida a sessão no verificador e bloqueia o uso da chave (chave do Keystore exigindo dispositivo desbloqueado); medir no MVP a latência real de detecção e tratá-la como risco residual declarado.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "P3 x I3 = 9"
+                },
+                {
+                  "id": "6b29ce2d-e569-4aa1-8294-d405d5dacffc",
+                  "title": "T02 — Falsificação de contato corporal ou de sinais de uso",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: Um adversário com acesso físico ou capacidade de interferir nos sensores simula contato corporal ou sinais compatíveis com uso legítimo.\n\nImpacto: O sistema pode manter o vínculo com base em uma evidência física falsificada.",
+                  "mitigation": "Corroboração de sensores e detecção de inconsistências. Combinar detecção de pulso, frequência cardíaca e acelerômetro; rejeitar padrões fisiologicamente implausíveis; testar no MVP com objetos mornos e pulseira frouxa.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 560,
+              "y": 170
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P2 - Agente de\nvínculo"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "cbca4f37-686a-4c0b-85e8-1812a7c2ef21"
+                },
+                {
+                  "group": "right",
+                  "id": "a27eca34-a411-47c1-b896-b02ff870f223"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a75f3485-e21a-4a52-84ff-39ba09ad271c"
+                },
+                {
+                  "group": "left",
+                  "id": "28b67f81-6426-4149-b0cf-3ae7ea80cdb7"
+                }
+              ]
+            },
+            "id": "46d72580-1130-45e7-9973-7fde83c68317",
+            "data": {
+              "type": "tm.Process",
+              "name": "P2 - Agente de\nvínculo",
+              "description": "Aplicativo no relógio: decide localmente se há uso, assina evidências e emite o evento de retirada.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "78e9e26b-e42f-4655-b7ef-88c4b913ad2f",
+                  "title": "T04 — Supressão ou atraso intencional do evento de retirada",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: Software comprometido com capacidade de interferir na aquisição suprime ou atrasa intencionalmente o evento de retirada. Erros espontâneos do sensor devem ser avaliados separadamente como confiabilidade.\n\nImpacto: A sessão permanece válida após a perda de continuidade física; a verificação pode ficar indisponível.",
+                  "mitigation": "Monitoramento periódico, timeout e suspensão por ausência de evidências recentes. O verificador não depende só do evento r: exige heartbeat assinado a cada intervalo fixo e gera r por timeout (ver T37).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "P1 x I3 = 3"
+                },
+                {
+                  "id": "65002070-9d7c-4ad0-84ca-a92aeef806c3",
+                  "title": "T05 — Geração de evidência de uso sem verificação física recente",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: Um agente comprometido ou uma lógica vulnerável gera evidência de uso sem consultar o estado físico atual ou aceita uma leitura vencida.\n\nImpacto: Uma declaração de uso sem suporte físico recente pode ser aceita como atual.",
+                  "mitigation": "Verificar estado atual dos sensores e validade temporal da evidência. Cada evidência inclui o nonce do verificador, contador monotônico e o instante da última leitura de pulso; o verificador rejeita evidência mais velha que o limite definido.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "7e0c7a45-774f-40e4-8fed-bebed0761de1",
+                  "title": "T07 — Uso não autorizado das credenciais por software comprometido",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: Software comprometido invoca credenciais locais sem autorização, inclusive quando a chave não pode ser extraída. Pressupõe acesso indevido à operação criptográfica.\n\nImpacto: O atacante usa a identidade criptográfica do relógio com privilégios que não deveria possuir.",
+                  "mitigation": "Controle de acesso à chave, isolamento e restrição de permissões. Chave vinculada ao aplicativo e utilizável somente com o dispositivo desbloqueado; verificação de integridade do aplicativo e do dispositivo antes de aceitar o cadastro.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "P1 x I3 = 3"
+                },
+                {
+                  "id": "f5fbcaf5-1e86-48f0-b1d7-4b8e365c9531",
+                  "title": "T10 — Exaustão de recursos que impede a verificação contínua",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Efeito no DFA: a negado ou r forjado: o titular legítimo não consegue chegar a q1x ou é derrubado para q0x sem ter retirado o relógio.\n\nAdversário: A3 software malicioso no relógio ou no celular; A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um atacante provoca consumo excessivo de CPU, memória, bateria ou filas do agente de vínculo.\n\nImpacto: A verificação contínua fica indisponível e o sistema pode perder a capacidade de confirmar o uso atual.",
+                  "mitigation": "Limites de processamento, tratamento de falhas e suspensão segura. Agente como serviço em primeiro plano com orçamento de energia medido; ao falhar, o sistema cai para q0x (falha segura), nunca mantém q1x.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "P2 x I2 = 4"
+                },
+                {
+                  "id": "474752fe-603e-4b70-9c71-f127f1c98ac7",
+                  "title": "T43 — Versão antiga ou adulterada do agente de vínculo",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: O atacante instala uma versão antiga e vulnerável do aplicativo do relógio, ou uma versão modificada.\n\nImpacto: Controles de detecção de retirada e de proteção de chave podem ser contornados.",
+                  "mitigation": "O verificador exige versão mínima do aplicativo, informada dentro da evidência assinada e conferida por verificação de integridade.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": "P1 x I3 = 3"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 770,
+              "y": 50
+            },
+            "size": {
+              "width": 190,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D1 - Chaves do dispositivo\n(Keystore)"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "041d68a5-a8cb-4aea-a58f-2b866bc6c303"
+                },
+                {
+                  "group": "right",
+                  "id": "efc8e304-c4ea-4889-a180-f0f5f1ce3377"
+                },
+                {
+                  "group": "bottom",
+                  "id": "7ce024c1-2c03-45e8-82ca-fab60a3baa8b"
+                },
+                {
+                  "group": "left",
+                  "id": "6114f943-115e-46f7-8ce1-236678021923"
+                }
+              ]
+            },
+            "id": "f7afaded-48d0-4253-b179-b6c51d863101",
+            "data": {
+              "type": "tm.Store",
+              "name": "D1 - Chaves do dispositivo\n(Keystore)",
+              "description": "Chave privada do relógio, não exportável.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "e7d07944-67b8-43f1-920b-ab4783909358",
+                  "title": "T06 — Extração de chaves e credenciais locais",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular; A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: Um atacante com acesso suficiente ao dispositivo ou a seu software extrai as chaves e credenciais locais.\n\nImpacto: As credenciais expostas podem permitir impersonação do dispositivo e comprometer o vínculo.",
+                  "mitigation": "Android Keystore/armazenamento protegido por hardware quando disponível. Chave gerada dentro do Android Keystore, não exportável, em hardware (TEE ou StrongBox) quando o relógio oferecer; verificar no cadastro por atestação de chave.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "P1 x I3 = 3"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 790,
+              "y": 230
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D3 - Buffer de leituras"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8ccd3fe5-c237-4325-8c6f-b033fe30c0d3"
+                },
+                {
+                  "group": "right",
+                  "id": "2cdc1f70-b642-47b5-bb9f-244f8cda452e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "3c03d9bf-a322-4f83-b2c0-2b693beff581"
+                },
+                {
+                  "group": "left",
+                  "id": "85c9c45a-1799-4977-a8eb-0f9d36e6da38"
+                }
+              ]
+            },
+            "id": "2f961966-832b-4def-ae52-5fb294596a80",
+            "data": {
+              "type": "tm.Store",
+              "name": "D3 - Buffer de leituras",
+              "description": "Leituras fisiológicas aguardando envio. Dado pessoal sensível.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "dc747be9-1eb3-4675-888e-e1a46109b1ea",
+                  "title": "T39 — Resíduo de dados após a retirada ou o logout",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica); A3 software malicioso no relógio ou no celular.\n\nCenário: O evento r encerra a sessão no verificador, mas leituras em buffer e tokens permanecem no relógio e no celular.\n\nImpacto: Quem pegar o relógio depois da retirada encontra dados fisiológicos e material de sessão do titular.",
+                  "mitigation": "r dispara localmente a limpeza do buffer e dos tokens; dados cifrados com chave que só é utilizável com o relógio desbloqueado e no pulso.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": "P2 x I2 = 4"
+                },
+                {
+                  "id": "63f3a50d-f2f8-4492-8a8b-a5405835498c",
+                  "title": "T40 — Exposição de leituras fisiológicas guardadas no relógio",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A3 software malicioso no relógio ou no celular; A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: Leituras de sensores aguardando envio ficam armazenadas no relógio e são lidas por outro aplicativo, por backup ou por acesso físico.\n\nImpacto: Vazamento de dado pessoal sensível (saúde) nos termos da LGPD.",
+                  "mitigation": "Buffer mínimo e cifrado, excluído de backups; enviar ao verificador apenas o necessário para a autenticação, não a série fisiológica completa.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 5,
+              "y": 440
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P3 - Aplicativo\nautenticador"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 6,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "a059db23-de1d-43a8-b47b-8f8fd0fd2f97"
+                },
+                {
+                  "group": "right",
+                  "id": "3f1c3eba-d4b1-4ece-87ca-8436ffc54cd6"
+                },
+                {
+                  "group": "bottom",
+                  "id": "1618287b-cd59-44e3-b320-1b7796832425"
+                },
+                {
+                  "group": "left",
+                  "id": "0c71c457-f630-449f-951d-1e427e7ac45e"
+                }
+              ]
+            },
+            "id": "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+            "data": {
+              "type": "tm.Process",
+              "name": "P3 - Aplicativo\nautenticador",
+              "description": "Aplicativo no celular: autentica a pessoa na conta e desafia o relógio.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "6f728815-cac2-492b-bd19-fae19b65835b",
+                  "title": "T11 — Pessoa B utiliza o smartphone desbloqueado ou a sessão autenticada de A",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: B utiliza o smartphone desbloqueado ou a sessão de conta pertencente a A para responder à autenticação.\n\nImpacto: A identidade digital de A pode ser usada para validar um portador não autorizado.",
+                  "mitigation": "Reautenticação recente e verificação independente do portador. Exigir biometria ou PIN do celular no momento do evento a (BiometricPrompt com chave que exige autenticação recente), não apenas sessão de conta aberta.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "bcb118ed-3deb-4cdc-99ba-f9d4dd693855",
+                  "title": "T12 — Aplicativo malicioso falsifica o resultado de autenticação",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: Um aplicativo malicioso ou comprometido fabrica o resultado de autenticação, explorando a confiança atribuída ao cliente.\n\nImpacto: O verificador pode aceitar uma identidade não comprovada ou conceder autorização indevida.",
+                  "mitigation": "Verificação da origem e das provas pelo serviço verificador. O verificador nunca aceita um \"resultado\" do cliente: valida assinaturas e desafios por conta própria; verificação de integridade do aplicativo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "cb948d52-81a6-4a94-9f5e-fd31caf1ba7e",
+                  "title": "T13 — Autenticação legítima de A enquanto B utiliza o smartwatch",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A5 titular desonesto ou em conluio; A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: A autentica legitimamente sua conta no smartphone enquanto B usa fisicamente o relógio. Mesmo canais seguros e contato verdadeiro não demonstram que A é o portador.\n\nImpacto: Sinais fisiológicos de B podem ser vinculados à identidade autenticada de A.",
+                  "mitigation": "Vincular a autenticação à prova atual do portador do relógio. Limite fundamental: posse e contato não identificam o portador. Opções a avaliar: biometria contínua no relógio (assinatura cardíaca ou de movimento), confirmação presencial no cadastro, ou aceitar e declarar o risco residual. Decisão de arquitetura para discutir com o orientador.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "P3 x I3 = 9"
+                },
+                {
+                  "id": "757531ee-aa7b-4222-8a92-313217457091",
+                  "title": "T15 — Dispositivo falso responde a um desafio destinado ao relógio legítimo",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um dispositivo falso ou não autorizado apresenta resposta a um desafio destinado ao dispositivo legítimo.\n\nImpacto: O sistema pode estabelecer confiança com o dispositivo errado.",
+                  "mitigation": "Autenticação mútua e desafio vinculado à identidade do dispositivo. Desafio aleatório do celular respondido com a chave do relógio registrada no cadastro; autenticação mútua.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "28f8d97a-44e6-439e-be51-b3056258488a",
+                  "title": "T35 — Ataque de retransmissão: relógio e celular não estão realmente próximos",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Dois atacantes retransmitem o desafio e a resposta entre o relógio (no pulso de A, em outro lugar) e um celular ou terminal distante.\n\nImpacto: Uma sessão é aberta em um local onde o titular não está, com todas as provas criptográficas válidas.",
+                  "mitigation": "Limite de tempo de resposta do desafio medido no MVP; se o risco justificar, técnicas de medição de distância. Caso contrário, declarar como risco residual.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": "P1 x I3 = 3"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 10,
+              "y": 620
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D4 - Tokens de conta\ne sessão"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 7,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "7c8c9de6-0936-4013-b437-e7d87fdacf0e"
+                },
+                {
+                  "group": "right",
+                  "id": "39b54ce3-ad6f-4f1f-9a81-a3887b92cf30"
+                },
+                {
+                  "group": "bottom",
+                  "id": "3c574d0c-ee27-4b7d-9846-49496c0ae7de"
+                },
+                {
+                  "group": "left",
+                  "id": "4a9412f6-f63e-4d65-a748-7e84c1603456"
+                }
+              ]
+            },
+            "id": "639bc6aa-1d16-44a5-8346-63e927c50c52",
+            "data": {
+              "type": "tm.Store",
+              "name": "D4 - Tokens de conta\ne sessão",
+              "description": "Tokens e credenciais guardados no celular.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "ec8056a6-ee60-44aa-b28c-a5b26d0e2bfe",
+                  "title": "T18 — Exposição de credenciais ou tokens no smartphone",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular; A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: Um atacante ou aplicativo com acesso indevido ao smartphone obtém credenciais ou tokens em armazenamento, memória, registros ou interfaces expostas.\n\nImpacto: O material exposto pode permitir sequestro de sessão e impersonação da conta.",
+                  "mitigation": "Armazenamento seguro, privilégios mínimos e proteção de sessão. Tokens curtos e vinculados à chave do dispositivo (não reutilizáveis fora dele); armazenamento cifrado com chave do Keystore; nada sensível em logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 500,
+              "y": 880
+            },
+            "size": {
+              "width": 130,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "P4 - Verificador de\nidentidade e vínculo"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 8,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0c9e430c-4b67-497e-b04d-f2019b4d2b4c"
+                },
+                {
+                  "group": "right",
+                  "id": "189fa110-b47c-4bd0-b560-adae1d6d1c92"
+                },
+                {
+                  "group": "bottom",
+                  "id": "4e006fcf-0a8d-4b04-9008-14665bc92b72"
+                },
+                {
+                  "group": "left",
+                  "id": "f2ed0dd1-cf78-4630-b95e-6177fed264cc"
+                }
+              ]
+            },
+            "id": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+            "data": {
+              "type": "tm.Process",
+              "name": "P4 - Verificador de\nidentidade e vínculo",
+              "description": "Confere as provas da pessoa e do relógio contra o registro e decide os eventos a e r.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "7a7d0356-763b-4737-a453-a818f05d307b",
+                  "title": "T16 — Reutilização de um token ou resposta anterior",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um atacante reutiliza token, resposta ou prova de autenticação capturada em uma sessão anterior.\n\nImpacto: Uma autenticação antiga pode autorizar uma sessão atual sem nova comprovação.",
+                  "mitigation": "Nonce, expiração, sessão única e verificação antirreplay. Prova de uso único: nonce emitido pelo verificador, validade curta, vinculada à sessão e ao par conta-relógio.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "cf8e11b1-9281-4d3e-9ab9-585667506adf",
+                  "title": "T19 — Verificador confia na identidade declarada pelo cliente sem validar sua origem",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A3 software malicioso no relógio ou no celular.\n\nCenário: O cliente declara uma identidade e o verificador a aceita sem validar a origem e as evidências correspondentes.\n\nImpacto: Uma identidade arbitrária pode ser tratada como autenticada.",
+                  "mitigation": "Validar credenciais e evidências no servidor. Toda identidade chega acompanhada de prova criptográfica verificada no servidor contra o registro D2.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "9ae1a376-ac5a-41d9-9396-803849bbeaeb",
+                  "title": "T20 — Associação incorreta entre identidade A e dispositivo de B",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A5 titular desonesto ou em conluio; A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: São apresentadas a identidade autenticada de A e a identidade de um relógio vinculado a B; o serviço verifica cada prova isoladamente, sem conferir a associação autorizada entre pessoa, dispositivo e sessão.\n\nImpacto: Um usuário ou dispositivo recebe autorização para uma associação que não lhe pertence.",
+                  "mitigation": "Conferir vínculo autorizado entre identidade, dispositivo e sessão. O evento a só é emitido se a tripla (pessoa, relógio, sessão) constar como vínculo ativo em D2 e as duas provas citarem o mesmo nonce.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "bf870d9a-ccb3-4a9d-83f5-ba42645dcde7",
+                  "title": "T23 — Apresentação de evidência antiga ou produzida por dispositivo não autorizado",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: O verificador recebe e aceita evidência antiga ou originada de dispositivo não autorizado sem conferir origem, sessão e frescor. Complementa T08, que trata da reutilização da mensagem no fluxo.\n\nImpacto: Uma mensagem tecnicamente bem formada pode sustentar uma autorização sem evidência atual do dispositivo autorizado.",
+                  "mitigation": "Verificar origem, sessão, frescor e integridade. O verificador confere assinatura, relógio registrado, sessão, nonce e idade da evidência antes de qualquer decisão.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "4ce16c34-917d-4eea-9c44-29ba373d3f81",
+                  "title": "T24 — Retirada ocorre entre a validação e a emissão da autorização",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: A evidência é validada, o relógio é retirado e a autorização é emitida antes que a revogação ou o novo estado seja considerado. Atrasos físicos de detecção compõem o risco residual.\n\nImpacto: A decisão pode conceder autorização depois que o vínculo físico já deixou de ser válido.",
+                  "mitigation": "Revalidar estado, usar versão de sessão e revogação atômica. Número de versão da sessão incrementado a cada r; a decisão carrega a versão e o consumidor rejeita decisões de versão antiga.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "P2 x I2 = 4"
+                },
+                {
+                  "id": "3a9e4d25-8797-4768-82a9-cbf9347777e6",
+                  "title": "T25 — Serviço autoriza por padrão quando há falha de verificação",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A4 atacante do lado do servidor ou insider.\n\nCenário: Uma falha, timeout, exceção ou prova ausente leva o serviço a autorizar por padrão, seguindo uma política fail-open.\n\nImpacto: A autorização é concedida sem que os requisitos de identidade e vínculo sejam comprovados.",
+                  "mitigation": "Política fail-closed: ausência de prova impede autorização. Falha fechada: qualquer erro, timeout ou dado ausente resulta em q0x. Coberto por teste automatizado no MVP.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "a70fe0ea-ca35-4c29-ac47-c2b9cdf78d11",
+                  "title": "T28 — Solicitações excessivas impedem autenticações legítimas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Efeito no DFA: a negado ou r forjado: o titular legítimo não consegue chegar a q1x ou é derrubado para q0x sem ter retirado o relógio.\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um atacante envia volume excessivo de solicitações ou explora operações custosas do verificador.\n\nImpacto: Autenticações legítimas sofrem atraso ou indisponibilidade.",
+                  "mitigation": "Rate limiting, controle de recursos e política de recuperação. Limite de taxa por conta e por dispositivo; custo do desafio no cliente; a sobrecarga nunca resulta em autorização.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "P2 x I2 = 4"
+                },
+                {
+                  "id": "7b53b3ec-20e3-4a35-8d86-16aab56694f3",
+                  "title": "T37 — Silêncio do relógio tratado como presença",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: O relógio fica sem conexão (bateria, modo avião, bloqueio de rádio) e o verificador mantém a sessão por não ter recebido r.\n\nImpacto: Basta impedir a comunicação do relógio para manter q1x indefinidamente após a retirada.",
+                  "mitigation": "Heartbeat assinado em intervalo fixo; ausência por mais de um limite T equivale a r. Sugestão: registrar isso no DFA como uma das causas de r.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "556d252e-6eb2-4c6d-b583-7ebde09e587b",
+                  "title": "T38 — Perda ou roubo sem revogação remota",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: O relógio ou o celular é perdido ou roubado com vínculo ativo, e o titular não tem como invalidar o vínculo sem o aparelho.\n\nImpacto: O vínculo e as chaves continuam válidos nas mãos de terceiros até expirarem, se expirarem.",
+                  "mitigation": "Revogação pela conta em qualquer dispositivo; o verificador consulta o estado de revogação a cada evento a; bloqueio de tela obrigatório no relógio.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "d3883ec3-e1fd-4c1c-bb44-4a241eaa5052",
+                  "title": "T45 — Verificador único comprometido emite a arbitrário",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A4 atacante do lado do servidor ou insider.\n\nCenário: O serviço verificador é o único ponto que decide a e r. Quem o comprometer emite decisões para qualquer pessoa.\n\nImpacto: Quebra total do modelo; conflita com o princípio de descentralização previsto no plano de trabalho.",
+                  "mitigation": "Questão de arquitetura para a fase de projeto: decisão verificável por terceiros (provas assinadas anexas), ou verificação distribuída entre mais de um nó.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": "P1 x I3 = 3"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 790,
+              "y": 850
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D2 - Registro de\nvínculos"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 9,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "eb441f13-5131-4eae-8226-9de8b18ce31e"
+                },
+                {
+                  "group": "right",
+                  "id": "c8a530ec-2c1b-479e-8a63-cdc5910ced5e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "b5a3dee3-b1ba-4791-8647-fe8f5e6e5842"
+                },
+                {
+                  "group": "left",
+                  "id": "1a91acda-66c6-4a31-8887-def1fe80e473"
+                }
+              ]
+            },
+            "id": "1c39b7fe-6cc0-4c52-aa25-53d5f9de5fb9",
+            "data": {
+              "type": "tm.Store",
+              "name": "D2 - Registro de\nvínculos",
+              "description": "Vínculos ativos e estado de revogação.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "4f7e2346-3ea2-4704-9268-3080158eb2c1",
+                  "title": "T21 — Alteração não autorizada das associações cadastradas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: pré-condição de a: corrompe o vínculo pessoa-relógio-conta do qual toda transição a depende.\n\nAdversário: A4 atacante do lado do servidor ou insider.\n\nCenário: Um adversário com acesso indevido de escrita modifica as associações pessoa–dispositivo ou seus metadados no registro.\n\nImpacto: O verificador consulta um vínculo adulterado e pode autorizar a pessoa ou o dispositivo errado.",
+                  "mitigation": "Controle de acesso, integridade e auditoria. Controle de acesso mínimo ao registro, alterações somente pelo fluxo de cadastro autenticado, trilha de auditoria de toda mudança de vínculo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "P1 x I3 = 3"
+                },
+                {
+                  "id": "947e4371-c139-4e89-9331-7ef63251f959",
+                  "title": "T22 — Vazamento de identificadores, dados de associação ou históricos",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A4 atacante do lado do servidor ou insider.\n\nCenário: Um adversário consulta, copia ou obtém acesso indevido a identificadores, associações ou históricos mantidos no registro.\n\nImpacto: Exposição de informações sobre identidades e vínculos, com possibilidade de correlação e uso em outros ataques.",
+                  "mitigation": "Minimização de dados, criptografia e autorização. Minimização: guardar chave pública e pseudônimo, não dados de saúde; cifragem em repouso; separar identidade civil do identificador de vínculo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "P2 x I3 = 6"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 790,
+              "y": 1000
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "D5 - Log de auditoria"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 10,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "2b44f3a1-9500-4381-a72f-f5dd4ef3a646"
+                },
+                {
+                  "group": "right",
+                  "id": "7f028a57-8a9c-41db-9602-ae3465689b0b"
+                },
+                {
+                  "group": "bottom",
+                  "id": "0b83cf30-75bf-40dc-8857-52f7998a17a5"
+                },
+                {
+                  "group": "left",
+                  "id": "81af7b3a-9ce8-4169-a629-51dca3c78aad"
+                }
+              ]
+            },
+            "id": "4408f54c-ab72-4a7d-a695-6c288995d9fd",
+            "data": {
+              "type": "tm.Store",
+              "name": "D5 - Log de auditoria",
+              "description": "Registro de cada evento a e r e das evidências que o justificaram.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": true,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "279e395f-1845-4367-8289-b505a85a0799",
+                  "title": "T27 — Ausência ou adulteração de registros impede atribuir uma decisão",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a capacidade de provar depois qual transição ocorreu e por quê.\n\nAdversário: A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\n\nCenário: A ausência de registros protegidos ou sua adulteração impede reconstruir a origem, as evidências e o responsável por uma decisão.\n\nImpacto: A decisão não pode ser atribuída ou auditada de modo confiável.",
+                  "mitigation": "Registros de auditoria protegidos e correlacionados à sessão. Log somente de acréscimo, encadeado por hash, registrando cada a e r com as evidências que o justificaram.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": "P2 x I2 = 4"
+                },
+                {
+                  "id": "831f25e7-55fc-4b64-8239-bd9957cdc0b3",
+                  "title": "T41 — Rotina do titular reconstruída a partir dos registros de a e r",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A4 atacante do lado do servidor ou insider.\n\nCenário: Os horários de colocar e retirar o relógio, guardados para auditoria, revelam sono, deslocamentos e hábitos.\n\nImpacto: Perfilamento do titular por quem tiver acesso aos logs, mesmo sem nenhum dado de saúde.",
+                  "mitigation": "Pseudônimos nos logs, prazo de retenção definido, acesso restrito e registrado.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": "P2 x I2 = 4"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 370,
+              "y": 1250
+            },
+            "size": {
+              "width": 180,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "E3 - Plataforma do\ngêmeo digital"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": "4 3"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 11,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "f7f49a1e-4d4d-4e36-b4c1-076ceb053b88"
+                },
+                {
+                  "group": "right",
+                  "id": "01fd6cfa-ecf7-4451-a46c-b63c168eabf8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "262169d3-9eff-4a61-837d-75b3788314e3"
+                },
+                {
+                  "group": "left",
+                  "id": "e3a3cae3-f9b5-4078-b6e6-73cd2744e5f6"
+                }
+              ]
+            },
+            "id": "78e3acd3-634f-4f76-8cea-c9fc69f6a4ca",
+            "data": {
+              "type": "tm.Actor",
+              "name": "E3 - Plataforma do\ngêmeo digital",
+              "description": "Consome o estado de autenticação da pessoa.",
+              "outOfScope": true,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "A autenticação do gêmeo (eventos b e s do DFA) será modelada na próxima etapa. Aqui ele só consome a decisão.",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F0 - Contato corporal",
+              "description": "Fenômeno físico, não um canal de dados: é exatamente o que não pode ser assinado.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "abd96904-e795-492c-8dbf-8dc3364011a1"
+              ]
+            },
+            "labels": [
+              "F0 - Contato corporal"
+            ],
+            "id": "3c6abe48-9362-4100-a592-a60e91eb256d",
+            "source": {
+              "cell": "c3864b59-0030-438a-99b0-183e13c13fa7",
+              "port": "10294d32-93e6-4486-9f33-b1176d7769f6"
+            },
+            "target": {
+              "cell": "4e1fe95c-4ec8-4569-9322-64dd56369b8a",
+              "port": "90109188-79a8-4277-8720-a8af21bf9383"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F5 - Autenticação\nda pessoa",
+              "description": "PIN, senha ou biometria no celular.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "3ad8f581-76d3-4d57-862a-1375a8a7f044"
+              ]
+            },
+            "labels": [
+              "F5 - Autenticação\nda pessoa"
+            ],
+            "id": "bf63d6ea-37a8-483b-9010-fcad042ef123",
+            "source": {
+              "cell": "c3864b59-0030-438a-99b0-183e13c13fa7",
+              "port": "5aadb176-b175-4037-afcd-599df5d17599"
+            },
+            "target": {
+              "cell": "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+              "port": "a059db23-de1d-43a8-b47b-8f8fd0fd2f97"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F1 - Leituras e\nestado de pulso",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "13c50683-9d3d-4400-9ec6-f111a54f0f05",
+                  "title": "T03 — Manipulação das leituras transmitidas ao agente de vínculo",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A3 software malicioso no relógio ou no celular.\n\nCenário: Um componente capaz de interferir no caminho de aquisição altera leituras entre os sensores físicos e o agente de vínculo.\n\nImpacto: O agente decide com base em dados de contato ou uso adulterados.",
+                  "mitigation": "Validar origem das leituras e proteger o caminho de aquisição. Ler sensores apenas pelas APIs do sistema dentro do processo do agente; tratar relógio com root ou bootloader aberto como não confiável (atestação).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "P1 x I3 = 3"
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F1 - Leituras e\nestado de pulso"
+            ],
+            "id": "e49f0e5b-5478-48dd-afe2-2f88dfff2480",
+            "source": {
+              "cell": "4e1fe95c-4ec8-4569-9322-64dd56369b8a",
+              "port": "c07e4901-3327-4513-ae1d-4a9ae43c4e63"
+            },
+            "target": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "cbca4f37-686a-4c0b-85e8-1812a7c2ef21"
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": 105
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F2 - Assinatura",
+              "description": "Pedidos de assinatura ao Keystore; a chave nunca sai.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F2 - Assinatura"
+            ],
+            "id": "1ffd82ef-0721-4ece-9fc0-bee035b81ef0",
+            "source": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "a27eca34-a411-47c1-b896-b02ff870f223"
+            },
+            "target": {
+              "cell": "f7afaded-48d0-4253-b179-b6c51d863101",
+              "port": "6114f943-115e-46f7-8ce1-236678021923"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F11 - Leituras\nem buffer",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F11 - Leituras\nem buffer"
+            ],
+            "id": "ec3f2e78-4abc-478e-add3-3b261294f03e",
+            "source": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "a27eca34-a411-47c1-b896-b02ff870f223"
+            },
+            "target": {
+              "cell": "2f961966-832b-4def-ae52-5fb294596a80",
+              "port": "85c9c45a-1799-4977-a8eb-0f9d36e6da38"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F3 - Desafio e resposta",
+              "description": "O celular desafia o relógio; o relógio responde com assinatura da sua chave.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "Bluetooth LE / Wearable Data Layer",
+              "threats": [
+                {
+                  "id": "6c2f0a5a-522d-4298-8f7d-6f4716b9dd32",
+                  "title": "T14 — Interceptação ou adulteração da comunicação relógio–celular",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Efeito no DFA: não altera o estado do DFA: afeta a confidencialidade dos dados em qualquer estado.\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um adversário posicionado no canal relógio–celular intercepta dados ou modifica mensagens de resposta.\n\nImpacto: Dados de autenticação podem ser expostos e a integridade do estabelecimento do vínculo pode ser comprometida.",
+                  "mitigation": "Canal autenticado, criptografado e protegido contra MITM. Não confiar apenas na proteção do enlace Bluetooth: canal autenticado em nível de aplicação entre relógio e celular, com chaves estabelecidas no cadastro.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "P2 x I2 = 4"
+                }
+              ],
+              "trustBoundaryIds": [
+                "3ad8f581-76d3-4d57-862a-1375a8a7f044",
+                "abd96904-e795-492c-8dbf-8dc3364011a1"
+              ]
+            },
+            "labels": [
+              "F3 - Desafio e resposta"
+            ],
+            "id": "5e8528a6-0aa0-4ba7-b641-9ad4d2fbe286",
+            "source": {
+              "cell": "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+              "port": "3f1c3eba-d4b1-4ece-87ca-8436ffc54cd6"
+            },
+            "target": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "28b67f81-6426-4149-b0cf-3ae7ea80cdb7"
+            },
+            "vertices": [
+              {
+                "x": 330,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F12 - Tokens",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F12 - Tokens"
+            ],
+            "id": "91f3eb61-3a4a-4030-a7e4-364005fa9b5c",
+            "source": {
+              "cell": "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+              "port": "1618287b-cd59-44e3-b320-1b7796832425"
+            },
+            "target": {
+              "cell": "639bc6aa-1d16-44a5-8346-63e927c50c52",
+              "port": "7c8c9de6-0936-4013-b437-e7d87fdacf0e"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F4 - Evidência de uso\ne heartbeat",
+              "description": "Evidência assinada pelo relógio, enviada na colocação e depois em intervalo fixo. Pode ser retransmitida pelo celular, que não é confiável para integridade.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "bef47c63-6e8e-44ad-af9c-ea073177577c",
+                  "title": "T08 — Reutilização de uma evidência de uso anteriormente válida",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um atacante captura uma evidência de uso válida e a retransmite em outra ocasião ou sessão. Este registro trata da proteção antirreplay da evidência originada no smartwatch; T23 trata de sua aceitação no verificador.\n\nImpacto: O estado de uso antigo pode simular continuidade física atual.",
+                  "mitigation": "Nonce, identificador de sessão, sequência e expiração. Evidência assinada contendo identificador de sessão, nonce do verificador e contador; o verificador guarda o último contador aceito.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "e57b6fca-1ef3-42a9-ba07-8b7b31b5470e",
+                  "title": "T09 — Adulteração do estado de contato enviado ao verificador",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A3 software malicioso no relógio ou no celular.\n\nCenário: Um adversário capaz de interferir no fluxo altera o estado de contato ou outros campos da evidência enviada ao verificador.\n\nImpacto: Uma retirada ou ausência de contato pode ser ocultada por mensagem adulterada.",
+                  "mitigation": "Autenticação e integridade das mensagens, associadas à sessão. Assinatura do relógio de ponta a ponta sobre toda a evidência; o celular e a rede são apenas transporte e não são confiáveis para integridade.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "P2 x I3 = 6"
+                }
+              ],
+              "trustBoundaryIds": [
+                "abd96904-e795-492c-8dbf-8dc3364011a1",
+                "efcbad9b-ef3b-4875-9727-f7b2dd3d150f"
+              ]
+            },
+            "labels": [
+              "F4 - Evidência de uso\ne heartbeat"
+            ],
+            "id": "a93b3bd3-58ff-4f48-af84-a8af239ac562",
+            "source": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "a75f3485-e21a-4a52-84ff-39ba09ad271c"
+            },
+            "target": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "0c9e430c-4b67-497e-b04d-f2019b4d2b4c"
+            },
+            "vertices": [
+              {
+                "x": 500,
+                "y": 560
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F9 - Evento de retirada\nou logout (r)",
+              "description": "Aviso assinado de que o relógio saiu do pulso ou de que a pessoa encerrou a sessão.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "304ea91b-5a08-4ba9-b612-bf1566d6bf5c",
+                  "title": "T36 — Evento r forjado ou sessão derrubada por interferência",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Efeito no DFA: a negado ou r forjado: o titular legítimo não consegue chegar a q1x ou é derrubado para q0x sem ter retirado o relógio.\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A1 portador indevido (acesso físico, sem habilidade técnica).\n\nCenário: O atacante interfere no rádio ou injeta eventos de retirada para derrubar repetidamente a sessão de um titular legítimo.\n\nImpacto: O titular perde a sessão no meio do uso (por exemplo, durante uma teleconsulta) e precisa se reautenticar várias vezes.",
+                  "mitigation": "Evento r assinado pelo relógio; r por timeout com tolerância calibrada; reautenticação rápida de q01 para q11 sem refazer o lado do gêmeo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": "P2 x I2 = 4"
+                }
+              ],
+              "trustBoundaryIds": [
+                "abd96904-e795-492c-8dbf-8dc3364011a1",
+                "efcbad9b-ef3b-4875-9727-f7b2dd3d150f"
+              ]
+            },
+            "labels": [
+              "F9 - Evento de retirada\nou logout (r)"
+            ],
+            "id": "7dd251f1-4631-42a2-946c-9a462ec588d2",
+            "source": {
+              "cell": "46d72580-1130-45e7-9973-7fde83c68317",
+              "port": "a75f3485-e21a-4a52-84ff-39ba09ad271c"
+            },
+            "target": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "0c9e430c-4b67-497e-b04d-f2019b4d2b4c"
+            },
+            "vertices": [
+              {
+                "x": 720,
+                "y": 560
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F6 - Prova de autenticação\nda conta",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "25322932-b1d6-47f0-90c6-d17160decc36",
+                  "title": "T17 — Alteração da identidade ou dispositivo informado na prova",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite); A3 software malicioso no relógio ou no celular.\n\nCenário: Um atacante altera os identificadores de pessoa, dispositivo ou sessão informados na prova de autenticação.\n\nImpacto: Uma prova legítima pode ser atribuída a identidade, relógio ou sessão incorretos.",
+                  "mitigation": "Vincular criptograficamente identidade, dispositivo e sessão. A prova assina, em conjunto, identificador da pessoa, do relógio, da sessão e o nonce; qualquer troca invalida a assinatura.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "P2 x I3 = 6"
+                }
+              ],
+              "trustBoundaryIds": [
+                "3ad8f581-76d3-4d57-862a-1375a8a7f044",
+                "efcbad9b-ef3b-4875-9727-f7b2dd3d150f"
+              ]
+            },
+            "labels": [
+              "F6 - Prova de autenticação\nda conta"
+            ],
+            "id": "9adb58dc-9dac-416a-b1de-c4455ea526fe",
+            "source": {
+              "cell": "42e53fff-dbf4-4346-89f5-f91a93ac1a47",
+              "port": "3f1c3eba-d4b1-4ece-87ca-8436ffc54cd6"
+            },
+            "target": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "f2ed0dd1-cf78-4630-b95e-6177fed264cc"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 760
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F7 - Consulta de vínculo",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F7 - Consulta de vínculo"
+            ],
+            "id": "4b7bd3ac-9e46-41a9-a294-b0588ba2cc1e",
+            "source": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "189fa110-b47c-4bd0-b560-adae1d6d1c92"
+            },
+            "target": {
+              "cell": "1c39b7fe-6cc0-4c52-aa25-53d5f9de5fb9",
+              "port": "1a91acda-66c6-4a31-8887-def1fe80e473"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F10 - Auditoria",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "F10 - Auditoria"
+            ],
+            "id": "2d12f14c-ea80-4b57-94b7-00c1139790f3",
+            "source": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "189fa110-b47c-4bd0-b560-adae1d6d1c92"
+            },
+            "target": {
+              "cell": "4408f54c-ab72-4a7d-a695-6c288995d9fd",
+              "port": "81af7b3a-9ce8-4169-a629-51dca3c78aad"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F8 - Decisão e estado\nda sessão (a, r)",
+              "description": "Decisão assinada pelo verificador. É a saída desta etapa e a entrada da próxima.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "0a844f99-343b-49f1-9457-36e2620c439f",
+                  "title": "T26 — Falsificação ou adulteração de uma decisão de autenticação",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: a forjado: o evento a é aceito sem que o titular legítimo esteja usando o relógio legítimo (q0x -> q1x indevido).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Um adversário fabrica uma decisão de autenticação ou altera seu resultado, identidade, sessão ou validade antes do consumo pela próxima etapa.\n\nImpacto: A próxima etapa pode tratar uma sessão não autorizada como válida.",
+                  "mitigation": "Decisão autenticada, vinculada à sessão e com validade curta. Decisão assinada pelo verificador, com sessão, versão e validade curta; o gêmeo digital verifica a assinatura.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "P2 x I3 = 6"
+                },
+                {
+                  "id": "1d0ea69a-f1fb-4dce-aada-765ec3e91c1d",
+                  "title": "T42 — Estados dessincronizados entre relógio, verificador e gêmeo",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Efeito no DFA: r suprimido: a retirada acontece no mundo físico, mas o evento r não chega ou chega tarde (o sistema permanece em q1x).\n\nAdversário: A2 atacante de rádio/rede (escuta, altera, repete, retransmite).\n\nCenário: Mensagens de estado são descartadas ou reordenadas e as partes passam a discordar: o gêmeo acredita em q11 enquanto o verificador já está em q01.\n\nImpacto: O gêmeo continua aceitando dados de uma sessão que já foi invalidada.",
+                  "mitigation": "Decisões com versão de sessão e validade curta; o gêmeo exige renovação periódica em vez de confiar em um único aviso de a.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": "P2 x I2 = 4"
+                }
+              ],
+              "trustBoundaryIds": [
+                "efcbad9b-ef3b-4875-9727-f7b2dd3d150f",
+                "f4bd21b5-c2bd-46e2-a58f-416d10871ab6"
+              ]
+            },
+            "labels": [
+              "F8 - Decisão e estado\nda sessão (a, r)"
+            ],
+            "id": "1a6de63a-f815-4095-a8d7-cb9c3c3d03cd",
+            "source": {
+              "cell": "bf09f0c9-4ec1-4dc2-9fd1-685a0d7243cb",
+              "port": "4e006fcf-0a8d-4b04-9008-14665bc92b72"
+            },
+            "target": {
+              "cell": "78e3acd3-634f-4f76-8cea-c9fc69f6a4ca",
+              "port": "f7f49a1e-4d4d-4e36-b4c1-076ceb053b88"
+            },
+            "vertices": []
+          }
+        ],
+        "description": "Primeira coordenada do DFA: q0x -> q1x pelo evento a, permanência em q1x durante o uso, e volta a q0x pelo evento r (retirada detectada, logout, timeout ou revogação).\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
       }
     ],
-    "diagramTop": 4,
+    "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 28
+    "threatTop": 45
   }
 }

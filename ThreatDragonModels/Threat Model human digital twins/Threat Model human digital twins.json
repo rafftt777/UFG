@@ -1,9 +1,9 @@
 {
   "version": "2.6.2",
   "summary": {
-    "title": "Threat Model human digital twins v2",
+    "title": "Threat Model human digital twins",
     "owner": "rafftt777",
-    "description": "Modelo de ameaças da etapa pessoa-relógio da IC \"Arquitetura e protocolo para autenticação segura de dispositivos em gêmeos digitais\".\n\nEscopo: ciclo de vida da autenticação da pessoa, ou seja, a primeira coordenada do DFA (eventos a e r): cadastro e primeiro pareamento, colocação do relógio, uso contínuo, retirada ou logout, perda e roubo. A autenticação do gêmeo digital (eventos b e s) fica para a próxima etapa.\n\nCada ameaça indica seu efeito no DFA: a forjado, r suprimido, a negado ou r forjado, pré-condição de a, ou propriedades fora do autômato (confidencialidade e auditoria).\n\nSeveridade preliminar = probabilidade (1 a 3) x impacto (1 a 3), registrada no campo de pontuação: 9 crítica, 6 alta, 3 a 4 média, 1 a 2 baixa. São estimativas iniciais para revisão com o orientador, não medições.\n\nTodas as ameaças estão abertas: as mitigações são propostas a implementar e validar no MVP, e nenhuma está comprovada.\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte.",
+    "description": "Modelo de ameaças da etapa pessoa-relógio - IC \"Arquitetura e protocolo para autenticação segura de dispositivos em gêmeos digitais\".\n\nEscopo: ciclo de vida da autenticação da pessoa, ou seja, a primeira coordenada do DFA (eventos a e r): cadastro e primeiro pareamento, colocação do relógio, uso contínuo, retirada ou logout. A autenticação do gêmeo digital (eventos b e s) fica para a próxima etapa.\n\nCada ameaça indica seu efeito no DFA: a forjado, r suprimido, a negado ou r forjado, pré-condição de a, ou propriedades fora do autômato (confidencialidade e auditoria).\n\nTodas as ameaças estão abertas: as mitigações são propostas a implementar e validar no MVP\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte.",
     "id": 0
   },
   "detail": {
@@ -1239,7 +1239,7 @@
             "vertices": []
           }
         ],
-        "description": "Como nasce o vínculo pessoa-relógio-conta. O DFA parte do princípio de que esse vínculo existe; tudo o que der errado aqui contamina todos os eventos a posteriores.\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
+        "description": "Como nasce o vínculo pessoa-relógio-conta. O DFA parte do princípio de que esse vínculo existe; tudo o que der errado aqui contamina todos os eventos a posteriores.Adversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.Premissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
       },
       {
         "id": 1,
@@ -3927,7 +3927,7 @@
             "vertices": []
           }
         ],
-        "description": "Primeira coordenada do DFA: q0x -> q1x pelo evento a, permanência em q1x durante o uso, e volta a q0x pelo evento r (retirada detectada, logout, timeout ou revogação).\n\nAdversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.\nPremissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
+        "description": "Primeira coordenada do DFA: q0x -> q1x pelo evento a, permanência em q1x durante o uso, e volta a q0x pelo evento r (retirada detectada, logout, timeout ou revogação).Adversários considerados: A1 portador indevido, com acesso físico ao relógio ou ao celular e sem habilidade técnica; A2 atacante de rádio e rede, que escuta, altera, repete e retransmite mensagens; A3 software malicioso no relógio ou no celular; A4 atacante do lado do servidor ou insider; A5 titular desonesto ou em conluio.Premissas: o hardware do Keystore e as primitivas criptográficas padrão são íntegros; os sensores falham e têm latência; o celular e a rede são apenas transporte."
       }
     ],
     "diagramTop": 2,
